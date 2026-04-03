@@ -730,6 +730,145 @@
       .hero-ctas a { text-align: center; }
       .trust-badges { justify-content: center; }
     }
+
+    /* ── Powered By Trust Bar ── */
+    .powered-by {
+      padding: 48px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .powered-by-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .powered-by-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .powered-logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 32px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] .powered-logo-card {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .powered-logo-card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+    }
+
+    [data-theme="light"] .powered-logo-card:hover {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .powered-logo-card .logo-wordmark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .powered-logo-card .logo-wordmark img {
+      flex-shrink: 0;
+    }
+
+    [data-theme="dark"] .powered-card img { filter: brightness(1.2); }
+
+    /* ── Enterprise Security Badge ── */
+    .security-badge-bar {
+      padding: 0 0 48px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 28px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 0 30px rgba(0, 102, 255, 0.06), 0 0 60px rgba(0, 212, 255, 0.04);
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="light"] .security-badge {
+      background: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 102, 255, 0.04);
+    }
+
+    .security-badge:hover {
+      border-color: rgba(0, 212, 255, 0.2);
+      box-shadow: 0 0 40px rgba(0, 102, 255, 0.1), 0 0 80px rgba(0, 212, 255, 0.06);
+    }
+
+    .security-shield {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .security-badge-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .security-badge-title {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .security-badge-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .powered-by-logos {
+        gap: 12px;
+      }
+      .powered-logo-card {
+        padding: 12px 20px;
+      }
+      .powered-logo-card .logo-wordmark {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -781,6 +920,48 @@
       </div>
     </div>
   </section>
+
+  <!-- Powered By -->
+  <div class="powered-by reveal">
+    <div class="container">
+      <p class="powered-by-label">Powered By</p>
+      <div class="powered-by-logos">
+        <div class="powered-logo-card">
+          <span class="logo-wordmark"><img src="logos/anthropic.png" alt="Anthropic Claude" style="height: 28px; object-fit: contain;">Claude</span>
+        </div>
+        <div class="powered-logo-card">
+          <span class="logo-wordmark"><img src="logos/openai.png" alt="OpenAI ChatGPT" style="height: 28px; object-fit: contain;">ChatGPT</span>
+        </div>
+        <div class="powered-logo-card">
+          <span class="logo-wordmark"><img src="logos/gemini.png" alt="Google Gemini" style="height: 28px; object-fit: contain;">Gemini</span>
+        </div>
+        <div class="powered-logo-card">
+          <span class="logo-wordmark"><img src="logos/nvidia.png" alt="NVIDIA NemoClaw" style="height: 28px; object-fit: contain;">NemoClaw</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enterprise Security Badge -->
+  <div class="security-badge-bar reveal">
+    <div class="security-badge">
+      <svg class="security-shield" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 3L4 9v9c0 8.4 5.96 16.26 14 18 8.04-1.74 14-9.6 14-18V9L18 3z" fill="url(#shieldGrad)" opacity="0.15"/>
+        <path d="M18 3L4 9v9c0 8.4 5.96 16.26 14 18 8.04-1.74 14-9.6 14-18V9L18 3z" stroke="url(#shieldGrad)" stroke-width="1.5" fill="none"/>
+        <path d="M12 18l4 4 8-8" stroke="url(#shieldGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <defs>
+          <linearGradient id="shieldGrad" x1="4" y1="3" x2="32" y2="36" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#0066ff"/>
+            <stop offset="1" stop-color="#00d4ff"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="security-badge-text">
+        <span class="security-badge-title">Enterprise-Grade Security</span>
+        <span class="security-badge-sub">SOC 2 Ready &middot; End-to-End Encryption &middot; Private Infrastructure</span>
+      </div>
+    </div>
+  </div>
 
   <!-- The Shift -->
   <section id="shift">
@@ -981,7 +1162,7 @@
       <p class="section-label reveal">About</p>
       <h2 class="section-title reveal">Sortelle</h2>
       <div class="about-content reveal">
-        <p>Canadian AI consultant and builder specializing in agentic infrastructure. With a background in mining operations and enterprise technology, he brings a practical, operations-first approach to AI deployment. Not theoretical. Not experimental. Production systems that run.</p>
+        <p>Sortelle is a Canadian AI consultancy and systems integrator specializing in agentic infrastructure. With a background in mining operations and enterprise technology, Sortelle brings a practical, operations-first approach to AI deployment. Designed for real-world operations and built to deliver.</p>
       </div>
     </div>
   </section>
